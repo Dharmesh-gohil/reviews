@@ -21,15 +21,28 @@ return 0
     return numnber
    }
 
+  const randomPerson = () => {
+    let randomNumber = Math.floor(Math.random() * people.length)
+    if (randomNumber === index) { 
+      randomNumber=index+1
+    }
+    setIndex(checkNumber(randomNumber))
+   }
   const prevBtn = () => { 
     setIndex((index) => {
-      let newIndex = index -1;
+      let newIndex = index - 1;
+    //   if (numnber < 0) { 
+    //   return people.length-1
+    // }
        return checkNumber(newIndex) 
      })
   }
   const nextBtn = () => { 
     setIndex((index) => {
       let newIndex = index + 1;
+//       if (numnber > people.length-1) { 
+// return 0
+//     }
       return checkNumber(newIndex)
     })
     }
@@ -54,6 +67,7 @@ return 0
           <CgChevronRightR/>
         </button>
       </div>
+      <button className="btn btn-hipster" onClick={randomPerson}> Random-people</button>
     </article>
   </main>
     
